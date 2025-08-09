@@ -55,8 +55,8 @@ const Navbar = () => {
                     </div>
                 </div>}
                 <div className="links">
-                    <span onClick={()=>navigate('/becomeseller')}>fiverr Business</span>
-                    <span className="tooltip ">Explore
+                    {/* <span onClick={()=>navigate('/becomeseller')}>fiverr Business</span> */}
+                    {/* <span className="tooltip ">Explore
                         <span className="tooltiptext">
                             <div className="col">
                                 <div className="item_tooltip">
@@ -96,13 +96,13 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </span>
-                    </span>
-                    <span>
+                    </span> */}
+                    {/* <span>
                         <img src='/images/language.png' alt='' width={'18px'} height={'16px'}
                             style={{ marginRight: '10px' }}>
                         </img>
                         English
-                    </span>
+                    </span> */}
                     <Link to='/login' className='link' key={333}><span>Sign in</span></Link>
 
                     {!current_user?.isSeller && <span onClick={e => navigate('/becomeSeller')}>Become a Seller</span>}
