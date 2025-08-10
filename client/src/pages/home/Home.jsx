@@ -14,16 +14,285 @@ const Home = () => {
     return ([
         <div className="home">
             <Featured></Featured>
-            <div style={{ paddingTop: "70px", background: "white" }}>
-  <Slide slidesToShow={5} arrowsScroll={5}>
-    {
-      cards.map((card) => (
-        <CatCard item={card} key={card.id} />
-      ))
-    }
-  </Slide>
-</div>
+            <div style={{ 
+    paddingTop: "70px", 
+    background: `
+        linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%),
+        radial-gradient(circle at 25% 30%, rgba(0,255,136,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(0,212,255,0.06) 0%, transparent 50%)
+    `,
+    position: "relative",
+    overflow: "hidden",
+    paddingBottom: "50px"
+}}>
+    {/* Animated Matrix Background */}
+    <div style={{
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        backgroundImage: `
+            linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px),
+            linear-gradient(rgba(0,212,255,0.02) 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px',
+        animation: 'matrixDrift 25s linear infinite',
+        zIndex: 1
+    }}></div>
+    
+    {/* Floating Energy Orbs */}
+    <div style={{
+        position: 'absolute',
+        top: '20%',
+        left: '10%',
+        width: '200px',
+        height: '200px',
+        background: 'radial-gradient(circle, rgba(0,255,136,0.15) 0%, rgba(0,255,136,0.08) 40%, transparent 70%)',
+        borderRadius: '50%',
+        animation: 'energyOrb1 18s ease-in-out infinite',
+        filter: 'blur(2px)',
+        zIndex: 1
+    }}></div>
+    
+    <div style={{
+        position: 'absolute',
+        bottom: '25%',
+        right: '15%',
+        width: '150px',
+        height: '150px',
+        background: 'radial-gradient(circle, rgba(0,212,255,0.12) 0%, rgba(0,212,255,0.06) 40%, transparent 70%)',
+        borderRadius: '50%',
+        animation: 'energyOrb2 22s ease-in-out infinite',
+        filter: 'blur(1px)',
+        zIndex: 1
+    }}></div>
 
+    <div style={{
+        position: 'absolute',
+        top: '60%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100px',
+        height: '100px',
+        background: 'radial-gradient(circle, rgba(255,107,53,0.10) 0%, rgba(255,107,53,0.05) 40%, transparent 70%)',
+        borderRadius: '50%',
+        animation: 'energyOrb3 15s ease-in-out infinite',
+        filter: 'blur(1px)',
+        zIndex: 1
+    }}></div>
+    
+    {/* Floating Particles */}
+    {[...Array(20)].map((_, i) => (
+        <div key={i} style={{
+            position: 'absolute',
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${3 + Math.random() * 4}px`,
+            height: `${3 + Math.random() * 4}px`,
+            background: i % 4 === 0 ? '#00ff88' : i % 4 === 1 ? '#00d4ff' : i % 4 === 2 ? '#ff6b35' : '#9b59b6',
+            borderRadius: '50%',
+            opacity: 0.7,
+            boxShadow: `0 0 10px currentColor`,
+            animation: `floatingParticle${(i % 3) + 1} ${5 + Math.random() * 8}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 3}s`,
+            zIndex: 2
+        }}></div>
+    ))}
+
+    {/* Glowing Border Lines */}
+    <div style={{
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        right: '0',
+        height: '2px',
+        background: 'linear-gradient(90deg, transparent 0%, rgba(0,255,136,0.6) 20%, rgba(0,212,255,0.8) 50%, rgba(0,255,136,0.6) 80%, transparent 100%)',
+        animation: 'glowLine 4s ease-in-out infinite',
+        zIndex: 3
+    }}></div>
+
+    <div style={{
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        right: '0',
+        height: '1px',
+        background: 'linear-gradient(90deg, transparent 0%, rgba(0,212,255,0.4) 30%, rgba(255,107,53,0.6) 70%, transparent 100%)',
+        animation: 'glowLine 6s ease-in-out infinite reverse',
+        zIndex: 3
+    }}></div>
+
+    {/* Main Slider Content */}
+    <div style={{ position: 'relative', zIndex: 10 }}>
+        <Slide slidesToShow={5} arrowsScroll={5}>
+            {cards.map((card) => (
+                <CatCard item={card} key={card.id} />
+            ))}
+        </Slide>
+    </div>
+
+    {/* CSS Animations */}
+    <style jsx>{`
+        @keyframes matrixDrift {
+            0% { transform: translateX(0) translateY(0); opacity: 0.3; }
+            25% { transform: translateX(20px) translateY(-10px); opacity: 0.5; }
+            50% { transform: translateX(-10px) translateY(15px); opacity: 0.3; }
+            75% { transform: translateX(15px) translateY(-20px); opacity: 0.4; }
+            100% { transform: translateX(0) translateY(0); opacity: 0.3; }
+        }
+        
+        @keyframes energyOrb1 {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1); 
+                opacity: 0.8; 
+            }
+            25% { 
+                transform: translateY(-30px) translateX(20px) scale(1.1); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translateY(-10px) translateX(-15px) scale(0.9); 
+                opacity: 0.9; 
+            }
+            75% { 
+                transform: translateY(-40px) translateX(10px) scale(1.05); 
+                opacity: 0.7; 
+            }
+        }
+        
+        @keyframes energyOrb2 {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg); 
+                opacity: 0.7; 
+            }
+            33% { 
+                transform: translateY(25px) translateX(-25px) rotate(120deg); 
+                opacity: 1; 
+            }
+            66% { 
+                transform: translateY(-15px) translateX(15px) rotate(240deg); 
+                opacity: 0.8; 
+            }
+        }
+        
+        @keyframes energyOrb3 {
+            0%, 100% { 
+                transform: translateX(-50%) translateY(0px) scale(1); 
+                opacity: 0.6; 
+            }
+            50% { 
+                transform: translateX(-50%) translateY(-35px) scale(1.2); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes floatingParticle1 {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg); 
+                opacity: 0.6; 
+            }
+            33% { 
+                transform: translateY(-25px) translateX(15px) rotate(120deg); 
+                opacity: 1; 
+            }
+            66% { 
+                transform: translateY(10px) translateX(-20px) rotate(240deg); 
+                opacity: 0.8; 
+            }
+        }
+        
+        @keyframes floatingParticle2 {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) scale(1); 
+                opacity: 0.7; 
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) scale(1.2); 
+                opacity: 1; 
+            }
+            75% { 
+                transform: translateY(-5px) translateX(-10px) scale(0.8); 
+                opacity: 0.9; 
+            }
+        }
+        
+        @keyframes floatingParticle3 {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.5; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes glowLine {
+            0%, 100% { 
+                opacity: 0.4; 
+                filter: blur(1px); 
+            }
+            50% { 
+                opacity: 1; 
+                filter: blur(2px); 
+            }
+        }
+        
+        /* Enhanced Slider Navigation */
+        :global(.slick-prev),
+        :global(.slick-next) {
+            background: rgba(0,0,0,0.8) !important;
+            border: 2px solid rgba(0,255,136,0.5) !important;
+            border-radius: 50% !important;
+            width: 50px !important;
+            height: 50px !important;
+            z-index: 20 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        :global(.slick-prev:hover),
+        :global(.slick-next:hover) {
+            background: rgba(0,255,136,0.2) !important;
+            border-color: rgba(0,255,136,0.8) !important;
+            transform: scale(1.1) !important;
+            box-shadow: 0 0 20px rgba(0,255,136,0.4) !important;
+        }
+        
+        :global(.slick-prev:before),
+        :global(.slick-next:before) {
+            color: #00ff88 !important;
+            font-size: 16px !important;
+        }
+        
+        /* Enhanced Slider Container */
+        :global(.slick-slider) {
+            padding: 20px 0 !important;
+        }
+        
+        :global(.slick-track) {
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        :global(.slick-slide) {
+            opacity: 0.8 !important;
+            transform: scale(0.95) !important;
+            transition: all 0.3s ease !important;
+            padding: 0 10px !important;
+        }
+        
+        :global(.slick-slide:hover) {
+            opacity: 1 !important;
+            transform: scale(1) translateY(-5px) !important;
+        }
+        
+        :global(.slick-active) {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+    `}</style>
+</div>
            <div className="features" style={{
     backgroundColor: '#000000',
     padding: '100px 0',
