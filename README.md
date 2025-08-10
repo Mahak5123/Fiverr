@@ -1,12 +1,12 @@
-# Fiverr Clone - Freelance Marketplace
+# Fiverr - Freelance Marketplace
 
 ## Overview
 
-Welcome to Fiverr Clone, a dynamic freelance marketplace designed to connect clients with a diverse pool of talented freelancers. This project is built using modern technologies including React.js, Node.js, Express.js, and MongoDB. Whether you're a client looking for services or a freelancer eager to showcase your skills, Fiverr Clone has you covered.
+Welcome to Fiverr, a dynamic freelance marketplace designed to connect clients with a diverse pool of talented freelancers. This project is built using modern technologies including React.js, Node.js, Express.js, and MongoDB. Whether you're a client looking for services or a freelancer eager to showcase your skills, Fiverr has you covered.
 
 
 ## 🚀 Live Demo
-[**Visit Fiverr Clone Live**](https://drive.google.com/file/d/16XktYfkEgEiqMD9E7SRky4nSVpwasHw8/view)
+[**Visit Fiverr Live**](https://drive.google.com/file/d/1ygUvTT-k_7zy873Utn-tp6h091VywiDO/view?usp=sharing)
 
 ## Features
 
